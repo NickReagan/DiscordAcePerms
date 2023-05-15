@@ -2,6 +2,10 @@ Config = {
 	Server_Name = "Free Island RP",
 	Discord_Link = 'https://discord.gg/2ADyyJbA5K',
 	Website_Link = 'https://discord.gg/2ADyyJbA5K',
+	Allow_Refresh_Command = true, -- Allow usage of /refreshPerms command
+	DebugScript = false,
+	Print_Perm_Grants_And_Removals = false,
+	Refresh_Throttle = 600, -- 10 minute refresh throttle
 	roleList = {
 		{1018686026845270147, "group.dummy"},
 		{960930455157342208, "group.nitrobooster"},
