@@ -149,8 +149,14 @@ function RegisterPermissions(src, eventLocation)
 		local permAdd = "add_principal identifier.discord:" .. discord .. " ";
 		local roleIDs = exports.Badger_Discord_API:GetDiscordRoles(src);
 		if not (roleIDs == false) then
+			if not roleIDs or (#roleIDs == 0) then 
+                sendDbug("Player " .. GetPlayerName(src) .. " has no roles in the Discord server...", eventLocation);
+				return false
+            else
+				sendDbug("Player " .. GetPlayerName(src) .. " had a valid roleIDs... Length: " .. tostring(#roleIDs), eventLocation);
+			end
 			local ROLE_MAP = convertRolesToMap(roleIDs);
-			sendDbug("Player " .. GetPlayerName(src) .. " had a valid roleIDs... Length: " .. tostring(#roleIDs), eventLocation);
+			
 			for i = 1, #roleList do
 				local discordRoleId = nil;
 				if (ROLE_CACHE[roleList[i][1]] ~= nil) then 
